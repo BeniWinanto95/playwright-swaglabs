@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('has title', async ({ page }) => {
+test('login', async ({ page }) => {
   await page.goto('https://www.saucedemo.com/');
 
   const inputUsername = page.locator('#user-name');
@@ -14,4 +14,6 @@ test('has title', async ({ page }) => {
   const buttonLogin = page.locator('#login-button');
   await buttonLogin.click();
 
+  //handling auth untuk login
+  await page.context().storageState({ path: 'auth.json'}); 
 });
